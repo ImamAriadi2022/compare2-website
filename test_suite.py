@@ -53,10 +53,10 @@ def test_dependencies():
     print("="*70)
     
     dependencies = [
-        ('playwright', 'playwright.async_api'),
         ('beautifulsoup4', 'bs4'),
         ('reportlab', 'reportlab'),
-        ('Pillow', 'PIL')
+        ('Pillow', 'PIL'),
+        ('requests', 'requests')
     ]
     
     all_ok = True
@@ -76,7 +76,7 @@ def test_dependencies():
     return all_ok
 
 
-async def test_scraper():
+def test_scraper():
     """Test web scraper dengan URL sederhana"""
     print("\n" + "="*70)
     print("TEST 3: Web Scraper")
@@ -88,7 +88,7 @@ async def test_scraper():
         scraper = WebScraper(screenshot_dir="test_screenshots")
         
         print("Testing with example.com...")
-        result = await scraper.scrape_url("https://example.com", "Test")
+        result = scraper.scrape_url("https://example.com", "Test")
         
         # Check result structure
         required_keys = ['url', 'html', 'screenshot_path', 'network_requests', 
@@ -101,12 +101,11 @@ async def test_scraper():
                 print(f"✗ Result missing '{key}'")
                 return False
         
-        # Check screenshot created
+        # Check screenshot (optional di versi lite)
         if result['screenshot_path'] and os.path.exists(result['screenshot_path']):
             print(f"✓ Screenshot created: {result['screenshot_path']}")
         else:
-            print("✗ Screenshot not created")
-            return False
+            print("ℹ Screenshot not available (versi lite tanpa browser automation)")
         
         print("\n✓ Web scraper working correctly!")
         return True
@@ -295,7 +294,7 @@ def run_all_tests():
     print("\n⚠ Test 3 requires internet connection and may take 10-15 seconds...")
     confirm = input("Run web scraper test? (y/n): ").strip().lower()
     if confirm == 'y':
-        results.append(("Web Scraper", asyncio.run(test_scraper())))
+        results.append(("Web Scraper", test_scraper()))
     else:
         print("Skipped web scraper test")
         results.append(("Web Scraper", None))

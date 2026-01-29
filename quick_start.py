@@ -12,15 +12,19 @@ from website_comparator import compare_websites
 
 # Website A - Masukkan URL yang ingin Anda analisis
 WEBSITE_A_URLS = [
-    "https://example-a.com/page1",
-    "https://example-a.com/page2",
+    "https://iot-fakeapi.vercel.app/petengoran/station1",
+    "https://iot-fakeapi.vercel.app/petengoran/station2",
+    "https://iot-fakeapi.vercel.app/petengoran/download",
+    "https://iot-fakeapi.vercel.app/kalimantan/station1",
+    "https://iot-fakeapi.vercel.app/kalimantan/download",
     # Tambahkan URL lainnya di sini
 ]
 
 # Website B - Masukkan URL yang ingin Anda analisis
 WEBSITE_B_URLS = [
-    "https://example-b.com/page1",
-    "https://example-b.com/page2",
+    "https://danigrafana.grafana.net/public-dashboards/f007adeb80044a9c9e2dac43ac0ea77a",
+    "https://danigrafana.grafana.net/public-dashboards/70af06465f304e32b22b6d7d521577ef",
+    "https://danigrafana.grafana.net/public-dashboards/838c24debfdc4a909a171c3acb749c88",
     # Tambahkan URL lainnya di sini
 ]
 
@@ -86,7 +90,7 @@ def main():
         print("\nTips:")
         print("  - Pastikan URL dapat diakses")
         print("  - Pastikan koneksi internet aktif")
-        print("  - Pastikan Playwright sudah terinstall: playwright install chromium")
+        print("  - Pastikan dependencies sudah terinstall: pip install -r requirements.txt")
 
 
 if __name__ == "__main__":

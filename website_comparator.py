@@ -3,7 +3,7 @@ Website Comparator - Main Module
 Script utama untuk menjalankan perbandingan website
 """
 
-import asyncio
+
 from typing import List
 import os
 from datetime import datetime
@@ -65,17 +65,13 @@ class WebsiteComparator:
         # Step 1: Scrape Website A
         print(f"\n[STEP 1/5] Scraping {website_a_name}...")
         print("-" * 70)
-        website_a_data = asyncio.run(
-            self.scraper.scrape_multiple_urls(website_a_urls, website_a_name)
-        )
+        website_a_data = self.scraper.scrape_multiple_urls(website_a_urls, website_a_name)
         print(f"[DONE] Scraped {len(website_a_data)} pages from {website_a_name}")
         
         # Step 2: Scrape Website B
         print(f"\n[STEP 2/5] Scraping {website_b_name}...")
         print("-" * 70)
-        website_b_data = asyncio.run(
-            self.scraper.scrape_multiple_urls(website_b_urls, website_b_name)
-        )
+        website_b_data = self.scraper.scrape_multiple_urls(website_b_urls, website_b_name)
         print(f"[DONE] Scraped {len(website_b_data)} pages from {website_b_name}")
         
         # Step 3: Analyze capabilities for Website A

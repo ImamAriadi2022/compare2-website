@@ -37,7 +37,7 @@ echo ============================================
 echo.
 echo Langkah selanjutnya:
 echo 1. Aktivasi environment: venv\Scripts\activate.bat
-echo 2. Install Playwright browsers: playwright install chromium
-echo 3. Jalankan example: python example.py
+echo 2. Jalankan example: python example.py
+echo 3. Atau edit quick_start.py dan jalankan: python quick_start.py
 echo.
 pause
